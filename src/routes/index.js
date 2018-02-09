@@ -9,7 +9,7 @@ export default class English extends React.Component {
 
     this.state = {
       AudioSrc: null,
-      markNumber: null, // 记录数字
+      markNumber: localStorage.getItem('markNumber') ? parseInt(localStorage.getItem('markNumber')) : null, // 记录数字
       isShowValue: true,
       isShowTranslate: true,
       data: []
@@ -65,6 +65,7 @@ export default class English extends React.Component {
   }
 
   toMark(key) {
+  	localStorage.setItem('markNumber', key);
     this.setState({'markNumber': key});
   }
 
